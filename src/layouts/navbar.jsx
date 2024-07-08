@@ -16,7 +16,7 @@ import { navItems } from "../App";
 const Layout = () => {
   return (
     <div className="flex min-h-screen w-full flex-col">
-      <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6 justify-between">
+      <header className="sticky top-0 z-50 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6 justify-between">
         <DesktopNav />
         <MobileNav />
         <UserMenu />
@@ -35,13 +35,14 @@ const DesktopNav = () => (
       className="flex items-center gap-2 text-lg font-semibold md:text-base"
     >
       <Package2 className="h-6 w-6" />
-      <span className="sr-only">Acme Inc</span>
+      <span>SaaS Co.</span>
     </NavItem>
     {navItems.map((item) => (
       <NavItem key={item.to} to={item.to}>
         {item.title}
       </NavItem>
     ))}
+    <Button className="ml-4">Sign Up</Button>
   </nav>
 );
 
@@ -60,13 +61,14 @@ const MobileNav = () => (
           className="flex items-center gap-2 text-lg font-semibold"
         >
           <Package2 className="h-6 w-6" />
-          <span className="sr-only">Acme Inc</span>
+          <span>SaaS Co.</span>
         </NavItem>
         {navItems.map((item) => (
           <NavItem key={item.to} to={item.to}>
             {item.title}
           </NavItem>
         ))}
+        <Button>Sign Up</Button>
       </nav>
     </SheetContent>
   </Sheet>
@@ -100,7 +102,7 @@ const NavItem = ({ to, children, className }) => (
         isActive
           ? "text-foreground"
           : "text-muted-foreground hover:text-foreground",
-        className,
+        className
       )
     }
   >
